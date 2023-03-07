@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/icon.png">
+    <title>DJ</title>
+</head>
+<body>
+
+<div class="main">
+    <div class="top-block">
+        <div class="top-block-left">
+            <div class="top-block-left-content">
+                <div class="playlist">
+
+                    <!--Музыкальные дорожки-->
+
+                </div>
+            </div>
+        </div>
+        <div class="top-block-right">
+            <div class="top-block-right-top">
+                <div class="top-block-right-top-content">
+                    <form action="/" method="get">
+                        <input type="search" name="search" value="" autocomplete="off" placeholder="search">
+                        <button><img src="img/fontawesome_icon/search.svg" alt="search"></button>
+                    </form>
+                    <div class="button computer">
+                        <img src="img/fontawesome_icon/computer.svg" alt="computer">
+                        <form class="add-music-from-computer" action="" enctype="multipart/form-data" method="post">
+                            <input type="file" name="upload-music[]"  multiple/>
+                        </form>
+                    </div>
+                    <div class="button"></div>
+                    <div class="button"></div>
+                    <div class="button"></div>
+                </div>
+            </div>
+            <div class="top-block-right-bottom">
+                <div class="top-block-right-bottom-content">
+                    <div class="cover">
+                        <img src="img/default.png" alt="">
+                        <audio class="audio" autoplay="" data-status="pause"></audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-block">
+        <div class="bottom-block-left">
+            <div class="bottom-block-left-content">
+                <div class="button-prev"><img src="img/fontawesome_icon/left.svg" alt=""></div>
+                <div class="button-play-pause" data-status="pause"><img src="img/fontawesome_icon/play.svg" alt=""></div>
+                <div class="button-next"><img src="img/fontawesome_icon/right.svg" alt=""></div>
+            </div>
+        </div>
+        <div class="bottom-block-right">
+            <div class="bottom-block-right-content">
+                <div class="button-volume-container">
+                    <div class="button-volume">
+                        <img src="img/fontawesome_icon/volume-high.svg" alt="">
+                    </div>
+                    <div class="button-volume-container-progress"><div class="volume-value"></div></div>
+                </div>
+                <div class="button-progress-container">
+                    <div class="progress">
+                        <div class="progress-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>
