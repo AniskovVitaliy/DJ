@@ -8,7 +8,7 @@ import {dj} from "./library/dj.js";
  *
  * @type {Promise<unknown>}
  */
-const upload = fetch('https://api-music/get-all-music.php')
+const upload = fetch('https://api-music/get-all-music.php');
 
 upload.then(response => {
 
