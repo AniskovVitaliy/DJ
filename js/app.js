@@ -8,7 +8,7 @@ import {dj} from "./library/dj.js";
  *
  * @type {Promise<unknown>}
  */
-const upload = fetch('https://api-music/get-all-music.php');
+const upload = fetch('https://sm28b.by/index.php?route=m_api/get_music');
 
 upload.then(response => {
 
@@ -27,7 +27,7 @@ upload.then(response => {
     })
 
 }).catch(error => {
-    alert(error)
+    alert('Не удалось загрузить музыку, ошибка: ' . error)
 })
 
 // console.log()

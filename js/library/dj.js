@@ -47,7 +47,7 @@ export class dj {
                 context.pause(context);
                 return false;
             }
-        })
+        });
 
         /**
          * Следующая песня
@@ -61,7 +61,7 @@ export class dj {
          */
         this.audio.addEventListener('ended', function () {
             context.nextSong(context);
-        })
+        });
 
         /**
          * Предыдущая песня
@@ -75,11 +75,11 @@ export class dj {
          */
         this.audio.addEventListener('timeupdate', function (e) {
             context.updateProgress(e, context)
-        })
+        });
 
         this.progressContainer.addEventListener('click', function (e) {
             context.setProgress(e, context)
-        })
+        });
 
         /**
          * Звук
@@ -90,11 +90,11 @@ export class dj {
             } else {
                 context.volumeContainer.classList.add('open');
             }
-        })
+        });
 
         this.volumeContainer.addEventListener('click', function (e) {
             context.calcVolume(e, context);
-        })
+        });
 
         this.setVolume(context, 0.1);
 
@@ -103,7 +103,7 @@ export class dj {
          */
         this.btnDownloadFromPC.addEventListener('click', function () {
             context.downloadMusicFromPC.click();
-        })
+        });
 
         this.downloadMusicFromPC.addEventListener('change', function (event) {
 
@@ -117,7 +117,7 @@ export class dj {
                 formData.append('musics', event.target.files[i]);
             }
 
-            fetch('https://api-music/add-with-computer.php', {method: 'POST', body: formData}).then(response => {
+            fetch('https://sm28b.by/index.php?route=m_api/load_music', {method: 'POST', body: formData}).then(response => {
                 response.json().then(function (songs) {
                     songs.forEach(item => {
                         context.songs.push(context.createSong(item, context.songs.length));
@@ -128,7 +128,7 @@ export class dj {
             }).catch(error => {
                 alert(error)
             })
-        })
+        });
 
     }
 
@@ -184,7 +184,7 @@ export class dj {
     }
 
     /**
-     * Обновление прогресс бара в проссе проигрывания аудио
+     * Обновление прогресс бара в процессе проигрывания аудио
      *
      * @param e событие
      * @param context объект класса
@@ -285,7 +285,7 @@ export class dj {
         for (let key in elements) {
             let div = document.createElement('div');
             div.className = "playlist__audio-card";
-            div.innerHTML = elements[key].split('/')[4];
+            div.innerHTML = elements[key].split('/').pop() ?? 'no name';
             div.dataset.audio = elements[key];
             div.id = 'number-' + key;
             array_objects.push(div)
@@ -303,7 +303,7 @@ export class dj {
     createSong(url, number) {
         let div = document.createElement('div');
         div.className = "playlist__audio-card";
-        div.innerHTML = url.split('/')[4];
+        div.innerHTML = url.split('/').pop() ?? 'no name';
         div.dataset.audio = url;
         div.id = 'number-' + number;
         return div;
